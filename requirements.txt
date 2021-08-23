@@ -9,7 +9,7 @@ patsy==0.5.1
 
 # Jupyter
 jupyter==1.0.0
-jupyterlab==0.35.6
+jupyterlab==1.2.21
 
 # Machine learning libraries
 scikit-learn==0.21.2
