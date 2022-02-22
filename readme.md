@@ -1,10 +1,10 @@
 # Scientific Python Environment
 
-This is a Jupyter Lab python environment that runs inside a docker container.
+This is a scientific Python environment that runs inside a docker container.
 
 ## Get started
 
-Run `docker-compose up` to start the Jupyter Lab server. If this is the first
+Run `docker-compose up` to start the Jupyter server. If this is the first
 time you are running the command, it may take a while to download and install
 everything.
 

@@ -1,0 +1,55 @@
+body.notebook_app,
+#notebook-container {
+    background-color: #fcfcfc;
+}
+
+
+/* **********************************************
+Header
+********************************************** */
+body.notebook_app #header {
+    box-shadow: 0px 0px 0px 1px #eeeeee;
+    -webkit-box-shadow: 0px 0px 0px 1px #eeeeee;
+}
+
+.header-bar {
+    visibility: hidden;
+}
+
+#menubar .navbar
+{
+    border-top: 1px solid rgb(231, 231, 231);
+    border-radius: 5px;
+}
+
+/* **********************************************
+Notebook body
+********************************************** */
+
+#notebook-container {
+    box-shadow: none;
+}
+
+.container {
+    width: 95% !important;
+} 
+
+@media only screen and (min-width: 1200px) {
+    .container {
+        width: 70% !important;
+    }
+}
+
+
+/* **********************************************
+CELL
+********************************************** */
+div.input_area {
+    border: 1px solid #eeeeee;
+}
+
+div.cell.selected {
+    border-top: 1px solid transparent;
+    border-bottom: 1px solid transparent;
+    border-right: 1px solid transparent;
+}

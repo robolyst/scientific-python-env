@@ -1,10 +1,11 @@
 version: '3'
 
 services:
-  jupyter-lab:
+  notebook:
     build: .
-    command: jupyter lab --allow-root --ip=0.0.0.0 --notebook-dir='/app' --NotebookApp.token=''
+    command: jupyter notebook --allow-root --port=8888 --no-browser --ip=0.0.0.0 --notebook-dir='/app/notebooks' --NotebookApp.token=''
     volumes:
       - ./:/app
+      - ./custom.css:/root/.jupyter/custom/custom.css
     ports:
       - "8888:8888"

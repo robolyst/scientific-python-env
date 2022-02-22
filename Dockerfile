@@ -1,15 +1,25 @@
-FROM python:3.6.8-jessie
+FROM python:3.10.1-slim-buster
 
 RUN apt update
 
-# These are needed to install and run python packages
-RUN apt install build-essential libssl-dev libffi-dev libxml2-dev libxslt1-dev \
-  zlib1g-dev libgomp1 postgresql libpq-dev -y
+RUN apt install libblas-dev liblapack-dev gfortran libatlas-base-dev gcc g++ cmake -y
+
+RUN pip3 install --upgrade pip
+
+WORKDIR /app
 
 # Create a virtualenv for the application dependencies.
-RUN pip install --no-cache-dir virtualenv && virtualenv venv
+RUN pip3 install --no-cache-dir virtualenv && virtualenv venv
 ENV PATH /venv/bin:$PATH
 
-# Install python packages
-ADD ./requirements.txt /app/requirements.txt
-RUN cd /app && pip install -r requirements.txt
+# Add the `requirements.txt` file and our custom packages
+ADD requirements.txt /app/requirements.txt
+RUN pip3 install --no-cache-dir -r requirements.txt
+
+# Setup jupyter extensions
+RUN jupyter contrib nbextension install --user
+RUN jupyter nbextensions_configurator enable --user
+RUN jupyter nbextension enable collapsible_headings/main
+RUN jupyter nbextension enable execute_time/ExecuteTime
+
+ENV PYTHONPATH="${PYTHONPATH}:/app"
